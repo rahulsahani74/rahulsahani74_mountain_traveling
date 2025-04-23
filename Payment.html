@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,af,sq,am,ar,hy,az,eu,be,bn,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,cs,da,nl,eo,et,tl,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,iw,hi,hmn,hu,is,ig,id,ga,it,ja,jw,kn,kk,km,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,sn,sd,si,sk,sl,so,es,su,sw,sv,tg,ta,tt,te,th,tr,tur,uk,ur,uz,vi,cy,xh,yi,yo,zu', // Ensure English is included
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    /* Payment Container */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+      margin: 0;
+      font-family: "Sofia", sans-serif;
+    font-size: 20px;
+    text-shadow: 3px 3px 3px #ababab;
+    }
+  
+    .payment-container {
+      max-width: 600px;
+      padding: 20px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)); /* Lighter black gradient */
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      color: white; /* Ensure text is readable on dark background */
+    }
+  
+    .payment-container h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .form-label {
+      color: white; /* Ensure labels are visible */
+    }
+  
+    .btn-primary {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      padding: 10px;
+      border-radius: 25px;
+    }
+  
+    .btn-back {
+      background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+      border: none;
+      padding: 5px 15px;
+      border-radius: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: 10px;
+      display: inline-block;
+      text-align: center;
+      transition: all 0.3s ease; /* Smooth hover effect */
+    }
+  
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+      color: black;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+    }
+  
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    /* QR Code Section */
+      #qrSection img {
+       
+        text-align: center;
+        margin-top: 0px;
+        height: 300px;
+        width: 300px;
+      }
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preloader div {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#google_translate_element {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+        }
+  </style>
+
+  <!-- Preloader -->
+<div id="preloader">
+  <div></div>
+</div> 
+
+  <!--GOOGLE FONT LINK-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<body>
+
+  <!--Languages-->
+
+  <div id="google_translate_element"></div>
+    
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!--Languages End-->
+
+  <!-- Background Video -->
+  <video autoplay muted loop>
+    <source src="payment.mp4" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Payment Container -->
+  <div class="payment-container">
+    <h3>Make a Payment</h3>
+    <form id="paymentForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="amount" class="form-label">Amount (INR)</label>
+        <input type="number" class="form-control" id="amount" placeholder="Enter amount" required>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary w-100 mb-2" id="payWithRazorpay">Pay with Razorpay</button>
+        <button type="button" class="btn btn-outline-success w-100" id="payWithQR">Pay with QR Code</button>
+      </div>
+      <!-- QR Code Section -->
+      <div id="qrSection" style="display:none; text-align:center;">
+        <h5>Scan to Pay</h5>
+        <img src="qr.png.jpg" alt="QR Code">
+        <p>Use any UPI-enabled app to scan the QR code.</p>
+      </div>
+    </form>
+    <!-- Back to Home Button -->
+    <a href="Travel.html" class="btn-back">Back to Home</a>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Payment Success</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Your payment was successful. Thank you!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('payWithRazorpay').addEventListener('click', function () {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const amount = document.getElementById('amount').value * 100;
+
+  if (!name || !email || !amount) {
+    alert('Please fill in all fields');
+    return;
+  }
+
+  const options = {
+    key: 'YOUR_RAZORPAY_KEY_ID',
+    amount: amount,
+    currency: 'INR',
+    name: 'Your Company Name',
+    description: 'Payment for services',
+    handler: function (response) {
+      fetch('save_payment.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          name: name,
+          email: email,
+          amount: (amount / 100).toFixed(2),
+          payment_id: response.razorpay_payment_id,
+          payment_status: 'Success',
+          payment_method: 'Razorpay',
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            new bootstrap.Modal(document.getElementById('paymentSuccessModal')).show();
+          } else {
+            alert('Failed to save payment: ' + data.message);
+          }
+        });
+    },
+    prefill: { name: name, email: email },
+    theme: { color: '#2575fc' },
+  };
+
+  const rzp = new Razorpay(options);
+  rzp.open();
+});
+
+document.getElementById('payWithQR').addEventListener('click', function () {
+  const qrSection = document.getElementById('qrSection');
+  qrSection.style.display = qrSection.style.display === 'none' || qrSection.style.display === '' ? 'block' : 'none';
+});
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Preloader Script
+    window.addEventListener('load', () => {
+    document.getElementById('preloader').style.display = 'none';
+    });
+  
+  </script>
+</body>
+</html>

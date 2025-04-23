@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+     crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+     <!--CSS LINK-->
+     <link rel="stylesheet" href="style.css">
+     <!--GOOGLE FONT LINK-->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+     <link rel="stylesheet" href="styles.css">
+</head>
+  </head>
+</head>
+<body>
+
+  <!--Languages-->
+
+  <div id="google_translate_element"></div>
+    
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <!--Languages End-->
+
+<!-- Preloader -->
+<div id="preloader">
+  <div></div>
+</div>
+
+<!-- Video Background -->
+<div class="video-background">
+  <video autoplay muted loop id="bg-video">
+    <source src="pm.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Welcome to Mountain Traveling</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Travel.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="Book Now.html">Book Your Adventure</a></li>
+                        <li><a class="dropdown-item" href="#"></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+
+<!--CONTACT US SECTION START-->
+
+<section class="main_headding">
+  <div class="text-center">
+    <h1 class="display-4">Contact Us</h1>
+    <hr class="w-25 mx-auto" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-8 col-10 col-md-8 mx-auto">
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Enter Your Name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter Your Email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter Your Password">
+          </div>
+          <div class="mb-3">
+            <label class="pe-4">Gender</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+              <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+              <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Other">
+              <label class="form-check-label" for="inlineRadio3">Other</label>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="exampleDataList" class="form-label">Select City</label>
+              <input class="form-control" list="datalistOptions" id="exampleDataList" name="city" placeholder="Type to search...">
+              <datalist id="datalistOptions">
+                <option value="San Francisco"></option>
+                <option value="New York"></option>
+                <option value="Seattle"></option>
+                <option value="Los Angeles"></option>
+                <option value="Chicago"></option>
+              </datalist>
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Upload File</label>
+            <input class="form-control" type="file" id="formFile" name="file">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="address" rows="3"></textarea>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreed_to_terms">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </section>
+    <br>
+
+    <!--CONTACT US SECTION END-->
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollUpButton" aria-label="Scroll to Top">
+      <i class="bi bi-arrow-up"></i>
+  </button>
+<!--end scroll bitton-->
+
+<!--FOOTER SECTION START-->
+<footer class="footer text-center text-lg-start">
+  <div class="container">
+      <div class="row">
+<!-- About Section -->
+<div class="col-lg-4 col-md-6 mb-4 mb-lg-0 section about-section">
+  <h5>About Us</h5>
+  <p>We are a team of passionate developers committed to delivering high-quality web solutions.</p>
+  <p>Our services include web development, e-commerce solutions, and mobile app development.</p>
+</div>
+<!-- Links Section -->
+<div class="col-lg-4 col-md-6 mb-4 mb-lg-0 section links-section">
+  <h5>Quick Links</h5>
+  <ul class="list-unstyled">
+      <li><a href="Travel.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="Book Now.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+  </ul>
+</div>
+<!-- Social Media Section with Live Geolocation -->
+<div class="col-lg-4 col-md-12 text-md-end section social-section">
+  <h5>Follow Us</h5>
+  <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+  <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+  <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+  <a href="#"><i class="bi bi-linkedin"></i></a>
+  <p class="mt-3">Stay connected for the latest updates and insights!</p>
+
+  <!-- Live Location Map Card -->
+  <div class="footer-column">
+    <h3>Reach Us</h3>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.602890761941!2d80.99660677504894!3d26.847591970771468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd2a49f80547%3A0x6b3c3c52be818189!2sChandra%20Institute%20of%20Professional%20Studies!5e0!3m2!1sen!2sin!4v1691488621234!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center py-3 mt-3" style="background-color: rgba(0, 0, 0, 0.2);">
+© 2025 All Rights Reserved. Design & Developed by RAHUL SAHANI Software Designers Pvt. Ltd.
+</div>
+</footer>
+
+
+
+<script>
+function fetchLiveLocation() {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(
+  function (position) {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      
+      // Generate Map Image URL
+      let mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=12&size=200x150&markers=color:red%7Clabel:A%7C${lat},${lon}&key=YOUR_GOOGLE_MAPS_API_KEY`;
+      
+      // Update Image & Text
+      document.getElementById("locationMap").src = mapUrl;
+      document.getElementById("locationText").innerText = "Your Location";
+  },
+  function (error) {
+      document.getElementById("locationText").innerText = "Location access denied.";
+  }
+);
+} else {
+document.getElementById("locationText").innerText = "Geolocation not supported.";
+}
+}
+
+// Call function on page load
+fetchLiveLocation();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--FOOTER SECTION END-->
+
+<!--JAVA SCRIPT SECTION START-->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<script>
+   // Initialize Bootstrap tooltips
+   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+   tooltipTriggerList.map(function (tooltipTriggerEl) {
+       return new bootstrap.Tooltip(tooltipTriggerEl);
+   });
+</script>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+      let valid = true;
+  
+      // Name validation
+      const name = document.getElementById("exampleInputName1").value.trim();
+      if (!name) {
+        alert("Name is required!");
+        valid = false;
+      }
+  
+      // Email validation
+      const email = document.getElementById("exampleInputEmail1").value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailPattern.test(email)) {
+        alert("Enter a valid email address!");
+        valid = false;
+      }
+  
+      // Password validation
+      const password = document.getElementById("exampleInputPassword1").value.trim();
+      if (!password || password.length < 6) {
+        alert("Password must be at least 6 characters long!");
+        valid = false;
+      }
+  
+      // Checkbox validation
+      const checkbox = document.getElementById("exampleCheck1");
+      if (!checkbox.checked) {
+        alert("You must agree to the terms!");
+        valid = false;
+      }
+  
+      if (!valid) e.preventDefault(); // Prevent form submission if validation fails
+    });
+  </script>
+  <script>
+    // Scroll-to-Top Button Logic
+    const scrollUpButton = document.getElementById('scrollUpButton');
+
+    // Show button when scrolled down 100px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollUpButton.style.display = "block";
+        } else {
+            scrollUpButton.style.display = "none";
+        }
+    };
+
+    // Smooth scroll to top
+    scrollUpButton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+</script>
+
+<script>
+  // Preloader Script
+  window.addEventListener('load', () => {
+  document.getElementById('preloader').style.display = 'none';
+  });
+
+</script>
+
+<!-- Bootstrap JS and Popper.js for Dropdowns -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

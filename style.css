@@ -1,0 +1,282 @@
+*{
+    font-family: "Sofia", sans-serif;
+    font-size: 20px;
+    text-shadow: 3px 3px 3px #ababab;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.carousel-item img {
+    width: 100%;
+    height: 90vh;
+}
+
+.about_img {
+   width: 90%;
+   height: 90%;
+  }
+  
+  .Services img {
+    width: 100%;
+    height: 100%;
+  }
+
+  
+
+  .check_style {
+    background-color: #a6dcef;
+  }
+
+  .footer {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 20px 0;
+    opacity: 0.7;
+}
+.footer .section {
+    padding: 20px;
+    border-radius: 5px;
+}
+.about-section {
+    background-color: #3a3f44; /* Charcoal Gray */
+}
+.links-section {
+    background-color: #4a5157; /* Slate Gray */
+}
+.social-section {
+    background-color: #6c757d; /* Light Slate Gray */
+}
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.footer .social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* General styling for images */
+figure img {
+    width: 100%; /* Ensure images are responsive */
+    height: auto;
+    opacity: 0.85; /* Initial opacity */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg); /* Base 3D effect */
+    border-radius: 10px; /* Optional: rounded corners for a modern look */
+}
+
+figure img:hover {
+    opacity: 1; /* Full opacity on hover */
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05); /* 3D rotation and zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow during hover */
+}
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preloader div {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scroll-to-Top Button */
+#scrollUpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollUpButton i {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+
+textarea {
+    width: 100%;
+    min-height: 100px; /* Adjust the min height as needed */
+    max-height: 300px; /* Optional: Limit max height */
+    overflow-y: auto; /* Add vertical scrolling */
+    resize: none; /* Disable manual resizing */
+  }
+
+  
+   /* Whatsapp Logo */
+   .whatsapp_main {
+    position: fixed;
+    bottom: 40px;
+    left: 2px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .whatsapp_img {
+        width: 15%;
+    }
+}
+
+
+/* Hover Effect */
+#scrollUpButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+#scrollUpButton:hover i {
+    transform: scale(1.2);
+}
+/* RESPONSIVE CSS CODE */
+/* X-Small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Add your styles here */
+    body {
+        background-color: rgb(189, 222, 233);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Add your styles here */
+    body {
+        background-color: rgb(188, 220, 188);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Add your styles here */
+    body {
+        background-color: lightyellow;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Add your styles here */
+    body {
+        background-color: rgb(251, 197, 197);
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    /* Add your styles here */
+    body {
+        background-color: whitesmoke;
+    }
+}
+/* LOGO SLIDER */
+
+ /* Custom Styling */
+ .swiper {
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(169, 169, 169, 0.5); /* Light gray with transparency */
+    background: linear-gradient(rgba(169, 169, 169, 0.5), rgba(0, 0, 0, 0.3)); /* Light gray + black gradient */
+    border-radius: 8px; /* Optional rounded corners */
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px; /* Fix width for logos */
+}
+.swiper-slide img {
+    width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: grayscale(100%);
+}
+.swiper-slide img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Ensuring responsive behavior */
+.swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+.swiper-container {
+    overflow: hidden;
+}
+
+
+  /* Video ko pura fit karne ke liye */
+  .carousel-item video {
+      height: 100vh; /* Full screen height */
+      object-fit: cover; /* Video ko properly fit karega */
+  }
+
+  /* Text ko exact center me laane ke liye */
+  .carousel-caption.centered-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 80%; /* Thoda chhota karega taaki better readability ho */
+  }
+
+  /* Headings aur text ke liye styling */
+  .carousel-caption h5 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+  }
+
+  .carousel-caption p {
+      font-size: 1.2rem;
+      color: white;
+  }
+
+  

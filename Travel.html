@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain Traveling</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!--CSS LINK-->
+  <link rel="stylesheet" href="style.css">
+
+  <!--GOOGLE FONT LINK-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+</head>
+</head>
+
+<body>
+
+  <!--Languages-->
+
+  <div id="google_translate_element"></div>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!--Languages End-->
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+  </div>
+
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop id="bg-video">
+      <source src="pm.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Welcome to Mountain Traveling</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Travel.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Book Now.html">Book Your Adventure</a></li>
+              <li><a class="dropdown-item" href="#"></a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#"></a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video class="d-block w-100 video-slide" autoplay loop muted playsinline>
+            <source src="sl1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption centered-text">
+            <!-- <h5>First Slide Label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>-->
+          </div>
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-100 video-slide" autoplay loop muted playsinline>
+            <source src="sl3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption centered-text">
+            <!--<h5>Second Slide Label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>-->
+          </div>
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-100 video-slide" autoplay loop muted playsinline>
+            <source src="sl2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption centered-text">
+            <!--<h5>Third Slide Label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>-->
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let carousel = document.querySelector("#carouselExampleCaptions");
+      let videos = document.querySelectorAll(".video-slide");
+
+      carousel.addEventListener("slid.bs.carousel", function (event) {
+        videos.forEach(video => video.pause());
+        let activeVideo = event.relatedTarget.querySelector("video");
+        if (activeVideo) {
+          activeVideo.currentTime = 0;
+          activeVideo.play();
+        }
+      });
+
+      // Mobile Auto Skip Logic
+      let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        videos.forEach(video => {
+          video.addEventListener("ended", function () {
+            let nextButton = document.querySelector(".carousel-control-next");
+            if (nextButton) nextButton.click();
+          });
+        });
+      }
+    });
+  </script>
+
+
+
+  <br>
+
+
+  <!--ABOUT US SECTION START-->
+
+  <section class="main_headding">
+    <div class="text-center">
+
+      <h1 class="display-4">About Us</h1>
+
+      <hr class="w-25 mx-auto" />
+    </div>
+
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-lg-6 col-md-6 col-12 col-xxl-6">
+          <figure class="mb-0">
+            <img src="m5.png" alt="m5.png" class="img-fluid about_img">
+          </figure>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 col-xxl-6 d-flex justify-content-center
+                   align-items-start flex-column">
+          <h1>My Journey</h1>
+          <p>A journey to the mountains is a magical experience, offering breathtaking views,
+            serenity, and a deep connection with nature. Walking through peaceful trails and
+            charming villages, the cool breeze, rustling leaves, and melodious chirping of birds
+            create a sense of calm, washing away all worries. Reaching the summit is truly rewarding,
+            with endless peaks, floating clouds, vibrant sunsets, and a feeling of being one with the
+            vastness of the universe. These adventures inspire not only strength and self-reliance but also a
+            renewed appreciation for the beauty and simplicity of life.</p>
+          <!--<button type="button" class="btn btn-outline-info">Check more</button>-->
+          <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="right"
+            data-bs-title="Who AM I">
+            Check more
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!--ABOUT US SECTION END-->
+
+  <!--OUR Services SECTION START-->
+
+  <section class="main_headding my-5 bg-light pt-5">
+    <div class="text-center">
+      <h1 class="display-4">Our Services</h1>
+      <hr class="w-25 mx-auto" />
+    </div><br>
+    <div class="container Services">
+      <div class="row gy-4"> <!-- Added gy-4 for better spacing between rows -->
+        <!-- First Card -->
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="card h-100" style="border: 1px solid #ddd; max-width: 600px; min-height: 250px;">
+            <!-- Increased size -->
+            <div class="row g-0 h-100">
+              <div class="col-5 d-flex align-items-center justify-content-center"> <!-- Increased image column width -->
+                <img src="r1.png" alt="r1.png" class="img-fluid"
+                  style="max-height: 95%; object-fit: cover; border-right: 1px solid #ddd;">
+              </div>
+              <div class="col-7">
+                <div class="card-body d-flex flex-column justify-content-between p-3"> <!-- Increased padding -->
+                  <div class="content-container"
+                    style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <h5 class="card-title m-0">Card title</h5>
+                    <p class="card-text m-0" style="font-size: 1rem;"> <!-- Increased font size -->
+                      This is a wider card with supporting text below as a natural lead-in to additional content.
+                    </p>
+                  </div>
+                  <p class="card-text mt-auto"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Card -->
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="card h-100" style="border: 1px solid #ddd; max-width: 600px; min-height: 250px;">
+            <div class="row g-0 h-100">
+              <div class="col-5 d-flex align-items-center justify-content-center">
+                <img src="r1.png" alt="r1.png" class="img-fluid"
+                  style="max-height: 95%; object-fit: cover; border-right: 1px solid #ddd;">
+              </div>
+              <div class="col-7">
+                <div class="card-body d-flex flex-column justify-content-between p-3">
+                  <div class="content-container"
+                    style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <h5 class="card-title m-0">Card title</h5>
+                    <p class="card-text m-0" style="font-size: 1rem;">
+                      This is a wider card with supporting text below as a natural lead-in to additional content.
+                    </p>
+                  </div>
+                  <p class="card-text mt-auto"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Card -->
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="card h-100" style="border: 1px solid #ddd; max-width: 600px; min-height: 250px;">
+            <div class="row g-0 h-100">
+              <div class="col-5 d-flex align-items-center justify-content-center">
+                <img src="r1.png" alt="r1.png" class="img-fluid"
+                  style="max-height: 95%; object-fit: cover; border-right: 1px solid #ddd;">
+              </div>
+              <div class="col-7">
+                <div class="card-body d-flex flex-column justify-content-between p-3">
+                  <div class="content-container"
+                    style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <h5 class="card-title m-0">Card title</h5>
+                    <p class="card-text m-0" style="font-size: 1rem;">
+                      This is a wider card with supporting text below as a natural lead-in to additional content.
+                    </p>
+                  </div>
+                  <p class="card-text mt-auto"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-12 d-flex justify-content-center my-5">
+          <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="right"
+            data-bs-title="Who AM I">
+            Check more
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--OUR  Services SECTION END-->
+
+  <!--GALLERY SECTION START-->
+
+  <section class="main_headding">
+    <div class="text-center">
+      <h1 class="display-4">Gallery</h1>
+      <hr class="w-25 mx-auto" />
+    </div><br>
+    <div class="container">
+      <div class="row gy-2">
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m1.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m2.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m3.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m4.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m5.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m6.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m7.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m8.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m9.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m10.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m11.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+
+        <div class="col-md-4 col-10  col-xxl-4 mx-auto">
+          <figure>
+            <img src="m12.png" alt="Gallery" class="img-fluid">
+          </figure>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!--GALLERY SECTION END-->
+
+
+  <!--CHECK OUT MY VIDEO SECTION START-->
+
+  <section class="main_headding my-5 py-2 check_style">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xxl-12 col-12 py-5 text-center">
+          <h1 class="text-white">Check Out My Videos</h1>
+          <p>“Failure is a great teacher and, if you are open to it, every mistake has a lesson to offer.”</p>
+          <div class="col-xxl-12 d-flex justify-content-center my-3">
+            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+              </svg>
+              Check Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">My Awesome Video</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>I Hope You Are Enjoying</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="https://youtu.be/oc_o5DZM3qc?si=wY25fJUjpTWM60xe">
+            <button type="button" class="btn btn-primary">Check Now</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--CHECK OUT MY VIDEO SECTION END-->
+
+  <!--CONTACT US SECTION START-->
+
+  <section class="main_headding">
+    <div class="text-center">
+      <h1 class="display-4">Contact Us</h1>
+      <hr class="w-25 mx-auto" />
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-8 col-10 col-md-8 mx-auto">
+          <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Name</label>
+              <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Enter Your Name">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+                placeholder="Enter Your Email">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                placeholder="Enter Your Password">
+            </div>
+            <div class="mb-3">
+              <label class="pe-4">Gender</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Other">
+                <label class="form-check-label" for="inlineRadio3">Other</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleDataList" class="form-label">Select City</label>
+              <input class="form-control" list="datalistOptions" id="exampleDataList" name="city"
+                placeholder="Type to search...">
+              <datalist id="datalistOptions">
+                <option value="San Francisco"></option>
+                <option value="New York"></option>
+                <option value="Seattle"></option>
+                <option value="Los Angeles"></option>
+                <option value="Chicago"></option>
+              </datalist>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload File</label>
+              <input class="form-control" type="file" id="formFile" name="file">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="address" rows="3"></textarea>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreed_to_terms">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!--CONTACT US SECTION END-->
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollUpButton" aria-label="Scroll to Top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+  <!--end scroll bitton-->
+
+  <!--LOGO SLIDER-->
+
+  <div class="container my-5">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper" id="logoContainer">
+        <!-- Logos will be added dynamically here -->
+      </div>
+    </div>
+  </div>
+
+  <!--FOOTER SECTION START-->
+  <footer class="footer text-center text-lg-start">
+    <div class="container">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 section about-section">
+          <h5>About Us</h5>
+          <p>We are a team of passionate developers committed to delivering high-quality web solutions.</p>
+          <p>Our services include web development, e-commerce solutions, and mobile app development.</p>
+        </div>
+        <!-- Links Section -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 section links-section">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="Travel.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Book Now.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <!-- Social Media Section with Live Geolocation -->
+        <div class="col-lg-4 col-md-12 text-md-end section social-section">
+          <h5>Follow Us</h5>
+          <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <p class="mt-3">Stay connected for the latest updates and insights!</p>
+
+          <!-- Live Location Map Card -->
+          <div class="footer-column">
+            <h3>Reach Us</h3>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.602890761941!2d80.99660677504894!3d26.847591970771468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd2a49f80547%3A0x6b3c3c52be818189!2sChandra%20Institute%20of%20Professional%20Studies!5e0!3m2!1sen!2sin!4v1691488621234!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center py-3 mt-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2025 All Rights Reserved. Design & Developed by RAHUL SAHANI Software Designers Pvt. Ltd.
+    </div>
+  </footer>
+
+
+
+  <script>
+    function fetchLiveLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+
+            // Generate Map Image URL
+            let mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=12&size=200x150&markers=color:red%7Clabel:A%7C${lat},${lon}&key=YOUR_GOOGLE_MAPS_API_KEY`;
+
+            // Update Image & Text
+            document.getElementById("locationMap").src = mapUrl;
+            document.getElementById("locationText").innerText = "Your Location";
+          },
+          function (error) {
+            document.getElementById("locationText").innerText = "Location access denied.";
+          }
+        );
+      } else {
+        document.getElementById("locationText").innerText = "Geolocation not supported.";
+      }
+    }
+
+    // Call function on page load
+    fetchLiveLocation();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!--FOOTER SECTION END-->
+
+  <!-- Whatsapp Logo -->
+  <div class="whatsapp_main">
+    <a href="https://wa.me/917408201933" target="_blank"><img src="whatsapp.png" width="8%" class="whatsapp_img"> </a>
+  </div>
+  <!--SCRIPT LOGO SLIDER-->
+
+
+  <!--JAVA SCRIPT SECTION START-->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  </script>
+
+  <script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+      let valid = true;
+
+      // Name validation
+      const name = document.getElementById("exampleInputName1").value.trim();
+      if (!name) {
+        alert("Name is required!");
+        valid = false;
+      }
+
+      // Email validation
+      const email = document.getElementById("exampleInputEmail1").value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailPattern.test(email)) {
+        alert("Enter a valid email address!");
+        valid = false;
+      }
+
+      // Password validation
+      const password = document.getElementById("exampleInputPassword1").value.trim();
+      if (!password || password.length < 6) {
+        alert("Password must be at least 6 characters long!");
+        valid = false;
+      }
+
+      // Checkbox validation
+      const checkbox = document.getElementById("exampleCheck1");
+      if (!checkbox.checked) {
+        alert("You must agree to the terms!");
+        valid = false;
+      }
+
+      if (!valid) e.preventDefault(); // Prevent form submission if validation fails
+    });
+  </script>
+
+  <script>
+    // Scroll-to-Top Button Logic
+    const scrollUpButton = document.getElementById('scrollUpButton');
+
+    // Show button when scrolled down 100px
+    window.onscroll = function () {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollUpButton.style.display = "block";
+      } else {
+        scrollUpButton.style.display = "none";
+      }
+    };
+
+    // Smooth scroll to top
+    scrollUpButton.onclick = function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+  </script>
+
+  <script>
+    // Preloader Script
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+    });
+
+  </script>
+
+  <!-- Bootstrap JS and Popper.js for Dropdowns -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // List of company logos (via CDN)
+    const companyLogos = [
+      "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+
+      "https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg",
+
+    ];
+
+    const logoContainer = document.getElementById("logoContainer");
+
+    // Add logos dynamically to the slider
+    companyLogos.forEach(logo => {
+      let slide = document.createElement("div");
+      slide.className = "swiper-slide";
+      slide.innerHTML = `<img src="${logo}" alt="Company Logo">`;
+      logoContainer.appendChild(slide);
+    });
+
+    // Initialize Swiper
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 5, // Show 5 logos at once
+      spaceBetween: 20, // Space between logos
+      loop: true, // Infinite loop
+      autoplay: {
+        delay: 2000, // Autoplay delay time in ms
+        disableOnInteraction: false, // Continue autoplay even if user interacts
+      },
+      breakpoints: {
+        320: { slidesPerView: 2 }, // Mobile (2 logos)
+        768: { slidesPerView: 3 }, // Tablet (3 logos)
+        1024: { slidesPerView: 5 } // Desktop (5 logos)
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

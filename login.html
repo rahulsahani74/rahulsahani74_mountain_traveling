@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="login.css">
+    <!-- GOOGLE FONT LINK -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+        /* Preloader Styles */
+        .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #007bff;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Hide page content until loaded */
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div class="content">
+        <!-- Background Video -->
+        <video autoplay muted loop class="bg-video">
+            <source src="mountain.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Login Form -->
+        <div class="login-container">
+            <div class="login-card">
+                <h6 class="text-center mb-4">Welcome to Mountain Traveling</h6>
+                <h3 class="text-center mb-4">Login</h3>
+                <form action="login_process.php" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+                <a href="Travel.html" class="back-to-home">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to Hide Preloader -->
+    <script>
+        window.onload = function() {
+            document.querySelector(".preloader").style.display = "none";
+            document.querySelector(".content").style.display = "block";
+        };
+    </script>
+
+</body>
+</html>
